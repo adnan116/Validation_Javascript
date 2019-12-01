@@ -1,80 +1,157 @@
-<script type="text/javascript" src = "validation.js"></script>
-
-<div id="error">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<script type="text/javascript" src="validation.js"></script>
+	<style type="text/css">
+		div {
+			color: red;
+		}
+	</style>
+</head>
+<body>
 	
-</div>
+	<fieldset>
+	    <legend><b>REGISTRATION</b></legend>
+		<form>
+			<br/>
+			<table width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>Name</td>
+					<td>:</td>
+					<td>
+						<input name="name" type="text" id="1" onkeyup="validateName()">
+						<div id="ename"> </div>
+					</td>
+					<td></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td>Email</td>
+					<td>:</td>
+					<td>
+						<input name="email" type="text" id="2" onkeyup="validateEmail()">
+						<abbr title="hint: sample@example.com"><b>i</b></abbr>
+						<div id="eemail"> </div>
+					</td>
+					<td></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td>User Name</td>
+					<td>:</td>
+					<td>
+						<input name="userName" type="text" id="3" onkeyup="validateUname()">
+						<div id="euname"> </div>
+					</td>
+					<td></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td>Password</td>
+					<td>:</td>
+					<td>
+						<input name="password" type="password" id="4" onkeyup="validatePass()">
+						<div id="epass"> </div>
+					</td>
+					<td></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td>Confirm Password</td>
+					<td>:</td>
+					<td>
+						<input name="confirmPassword" type="password" id="5" onkeyup="validateCpass()">
+						<div id="ecpass"> </div>
+					</td>
+					<td></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend>Gender</legend>    
+							<input name="gender" type="radio" value="Male" id="6">Male
+							<input name="gender" type="radio" value="Female" id="6">Female
+							<input name="gender" type="radio" value="Others" id="6">Other
+						</fieldset>
+						<div id="egender"> </div>
+					</td>
+					<td></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend>Date of Birth</legend>    
+							<input type="text" size="2" id="7" onkeyup="validateDob()" />/
+							<input type="text" size="2" id="8" onkeyup="validateDob()" />/
+							<input type="text" size="4" id="9" onkeyup="validateDob()" />
+							<font size="2"><i>(dd/mm/yyyy)</i></font>
+						</fieldset>
+						<div id="edob"> </div>
+					</td>
+					<td></td>
+				</tr>
+				<tr><td colspan="4"><hr></td></tr>
+				<tr>
+					<td>Blood Group</td>
+					<td>:</td>
+					<td>
+						<select>
+							<option value="">Select</option>
+							<option value="A+">A+</option>
+							<option value="A-">A-</option>
+							<option value="B+">B+</option>
+							<option value="B-">B-</option>
+							<option value="O+">O+</option>
+							<option value="O-">O-</option>
+							<option value="AB+">AB+</option>
+							<option value="AB-">AB-</option>
+						</select>
+						<div id="ebg"> </div>
+					</td>
+					<td></td>
+				</tr>
+				<tr><td colspan="4"><hr></td></tr>
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend>Degree</legend>
+							<input type="checkbox" name="deg" value="SSC">SSC
+							<input type="checkbox" name="deg" value="HSC">HSC
+							<input type="checkbox" name="deg" value="BSc">BSc
+						</fieldset>
+						<div id="edeg"> </div>
+					</td>
+					<td></td>
+				</tr>
+				<tr><td colspan="4"><hr></td></tr>
+				<tr>
+					<td>User ID</td>
+					<td>:</td>
+					<td>
+						<input type="text" name="uid" onkeyup="">
+						<div id="euid"> </div>
+					</td>
+					<td></td>
+				</tr>
+				<tr><td colspan="4"><hr></td></tr>
+				<tr>
+					<td>Picture</td>
+					<td>:</td>
+					<td>
+						<input type="file" name="pic">
+						<div id="eimg"> </div>
+					</td>
+					<td></td>
+				</tr>
+				<tr><td colspan="4"><hr></td></tr>
+			</table>
+			<input type="button" name="Submit" value="Submit" onclick="">
+			<input type="reset">
+		</form>
+	</fieldset>
 
-<fieldset>
-	
-    <legend><b>REGISTRATION</b></legend>
-	<form>
-		<br/>
-		<table width="100%" cellpadding="0" cellspacing="0">
-			<tr>
-				<td>Name</td>
-				<td>:</td>
-				<td><input name="name" type="text" id="1"></td>
-				<td></td>
-			</tr>		
-			<tr><td colspan="4"><hr/></td></tr>
-			<tr>
-				<td>Email</td>
-				<td>:</td>
-				<td>
-					<input name="email" type="text" id="2">
-					<abbr title="hint: sample@example.com"><b>i</b></abbr>
-				</td>
-				<td></td>
-			</tr>		
-			<tr><td colspan="4"><hr/></td></tr>
-			<tr>
-				<td>User Name</td>
-				<td>:</td>
-				<td><input name="userName" type="text" id="3"></td>
-				<td></td>
-			</tr>		
-			<tr><td colspan="4"><hr/></td></tr>
-			<tr>
-				<td>Password</td>
-				<td>:</td>
-				<td><input name="password" type="password" id="4"></td>
-				<td></td>
-			</tr>		
-			<tr><td colspan="4"><hr/></td></tr>
-			<tr>
-				<td>Confirm Password</td>
-				<td>:</td>
-				<td><input name="confirmPassword" type="password" id="5"></td>
-				<td></td>
-			</tr>		
-			<tr><td colspan="4"><hr/></td></tr>
-			<tr>
-				<td colspan="3">
-					<fieldset>
-						<legend>Gender</legend>    
-						<input name="gender" type="radio" value="Male" id="6">Male
-						<input name="gender" type="radio" value="Female" id="6">Female
-						<input name="gender" type="radio" value="Others" id="6">Other
-					</fieldset>
-				</td>
-				<td></td>
-			</tr>		
-			<tr><td colspan="4"><hr/></td></tr>
-			<tr>
-				<td colspan="3">
-					<fieldset>
-						<legend>Date of Birth</legend>    
-						<input type="text" size="2" id="7" />/
-						<input type="text" size="2" id="8" />/
-						<input type="text" size="4" id="9" />
-						<font size="2"><i>(dd/mm/yyyy)</i></font>
-					</fieldset>
-				</td>
-				<td></td>
-			</tr>
-		</table>
-		<hr/>
-		<input type="button" name="Submit" value="Submit" onclick="validate()">
-		<input type="reset">
-	</form>
-</fieldset>
+</body>
+</html>
