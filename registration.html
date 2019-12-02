@@ -71,9 +71,9 @@
 					<td colspan="3">
 						<fieldset>
 							<legend>Gender</legend>    
-							<input name="gender" type="radio" value="Male" id="6">Male
-							<input name="gender" type="radio" value="Female" id="6">Female
-							<input name="gender" type="radio" value="Others" id="6">Other
+							<input name="gender" type="radio" value="Male" id="6" onkeyup="validateGender()">Male
+							<input name="gender" type="radio" value="Female" id="6" onkeyup="validateGender()">Female
+							<input name="gender" type="radio" value="Others" id="6" onkeyup="validateGender()">Other
 						</fieldset>
 						<div id="egender"> </div>
 					</td>
@@ -98,7 +98,7 @@
 					<td>Blood Group</td>
 					<td>:</td>
 					<td>
-						<select>
+						<select id="bg" onchange="validateBG()">
 							<option value="">Select</option>
 							<option value="A+">A+</option>
 							<option value="A-">A-</option>
@@ -118,9 +118,9 @@
 					<td colspan="3">
 						<fieldset>
 							<legend>Degree</legend>
-							<input type="checkbox" name="deg" value="SSC">SSC
-							<input type="checkbox" name="deg" value="HSC">HSC
-							<input type="checkbox" name="deg" value="BSc">BSc
+							<input type="checkbox" name="deg" value="SSC" onclick="validateDeg()">SSC
+							<input type="checkbox" name="deg" value="HSC" onclick="validateDeg()">HSC
+							<input type="checkbox" name="deg" value="BSc" onclick="validateDeg()">BSc
 						</fieldset>
 						<div id="edeg"> </div>
 					</td>
@@ -131,7 +131,7 @@
 					<td>User ID</td>
 					<td>:</td>
 					<td>
-						<input type="text" name="uid" onkeyup="">
+						<input type="text" name="uid" onkeyup="validateUid()" id="10">
 						<div id="euid"> </div>
 					</td>
 					<td></td>
@@ -148,7 +148,7 @@
 				</tr>
 				<tr><td colspan="4"><hr></td></tr>
 			</table>
-			<input type="button" name="Submit" value="Submit" onclick="">
+			<input type="button" name="Submit" value="Submit" onclick="submitForm()">
 			<input type="reset">
 		</form>
 	</fieldset>

@@ -1,6 +1,6 @@
-/*var erbg = document.getElementById('ebg');
-var erdeg = document.getElementById('edeg');
-var eruid = document.getElementById('euid');
+/*
+
+
 var erimg = document.getElementById('eimg');
 var s = name.split(' ');
 var c = name.charAt(0);*/
@@ -14,16 +14,17 @@ function validateName() {
 
 	if (name == "") 
 	{
-		//alert("Any field can not be empty.");
-		/*erbg.innerHTML = "Blood Group can not be empty.";
-		erdeg.innerHTML = "Degree can not be empty.";
-		eruid.innerHTML = "User ID can not be empty.";
-		erimg.innerHTML = "Picture can not be empty.";	*/
 		ername.innerHTML = "Name can not be empty.";
+		return false;
 	}
 	else{
 		if (c<2) {
-			ername.innerHTML = "Name not valid";
+			ername.innerHTML = "Name range not valid";
+			return false;
+		}
+		else{
+			ername.innerHTML = "";
+			return true;
 		}
 	}
 }
@@ -34,6 +35,10 @@ function validateEmail(){
 
 	if (email == "") {
 		eremail.innerHTML = "Email can not be empty.";
+		return false;
+	}else{
+		eremail.innerHTML = "";
+		return true;
 	}
 
 }
@@ -44,6 +49,10 @@ function validateUname(){
 
 	if (uname == "") {
 		eruname.innerHTML = "Username can not be empty.";
+		return false;
+	}else{
+		eruname.innerHTML = "";
+		return true;
 	}
 }
 
@@ -53,6 +62,10 @@ function validatePass(){
 
 	if (pass == "") {
 		erpass.innerHTML = "Password can not be empty.";
+		return false;
+	}else{
+		erpass.innerHTML = "";
+		return true;
 	}
 }
 
@@ -62,15 +75,29 @@ function validateCpass(){
 
 	if (cpass == "") {
 		ercpass.innerHTML = "Confirm Password can not be empty.";
+		return false;
+	}else{
+		ercpass.innerHTML = "";
+		return true;
 	}
 }
 
 function validateGender(){
-	var gender = document.getElementById('6').value;
+	var gender = document.getElementById('6');
 	var ergender = document.getElementById('egender');
-
-	if (gender == "") {
+	var flag = 0; 
+	var i;
+	for(i=0;i<gender.length;i++) {
+		if(gender.item(i).checked == false) {
+			i++;
+		}
+	}
+	if(flag == gender.length) {
 		ergender.innerHTML = "Gender can not be empty.";
+		return false;
+	} else {
+		ergender.innerHTML = "";
+		return true;
 	}
 }
 
@@ -82,31 +109,73 @@ function validateDob(){
 
 	if (date == "" || month == "" || year == "") {
 		erdob.innerHTML = "Date of Birth can not be empty.";
+		return false;
 	}
 	else{
 		if (Number(date) >31 || Number(date) <=0 || Number(month)>12 || Number(month)<1 || Number(year) >2016 || Number(year)<1900) {
 			//alert("Date range not valid");
 			erdob.innerHTML = "Date range not valid";
+			return false;
+		}else{
+			erdob.innerHTML = "";
+			return true;
 		}
 	}
 }
-
-/*function validateBG(){
-	if () {}
+function validateBG(){
+	var erbg = document.getElementById('ebg');
+	var bgroup = document.getElementById("bg");
+	if(bgroup.value == "") {
+		erbg.innerHTML = "Blood group not empty.";
+		return false;
+	} else {
+		erbg.innerHTML = "";
+		return true;
+	}
 }
 
 function validateDeg(){
-
+	var erdeg = document.getElementById('edeg');
+	var degree = document.getElementsByName("deg")
+	var s;
+	for(var j=0;j<degree.length;j++) {
+		if(degree[j].checked == false) {
+			s +=;
+		}
+	}
+	if(s == "") {
+		erdeg.innerHTML = "Degree can not be empty";
+		return false;
+	} else {
+		erdeg.innerHTML = "";
+		return true;
+	}
 }
 
 function validateUid(){
 
+	var uid = document.getElementById('10').value;
+	var eruid = document.getElementById('euid');
+
+	if (uid == "") {
+		eruid.innerHTML = "UserId can not be empty.";
+		return false;
+	}else{
+		eruid.innerHTML = "";
+		return true;
+	}
+
 }
 
-function validatePic(){
-
+function submitForm(){
+	if (validateName()==true && validateEmail()==true && validateUname()==true && 
+		validatePass()==true && validateCpass()==true && validateGender()==true && 
+		validateDob()==true && validateBG()==true && validateDeg()==true && 
+		validateUid()==true) {
+		
+	}
 }
-*/
+
 
 /*else{
 
