@@ -247,7 +247,7 @@ function DOB(day,month,year)
 	}
 	else
 	{
-		if(Number(d) >31 || Number(d) <=0 || Number(m)>12 || Number(m)<1 || Number(y) >2016 || Number(y)<1900)
+		if((Number(d) > 31 || Number(d) < 1) || (Number(m) > 12 || Number(m) < 1) || (Number(y) > 2016 || Number(y) < 1900))
 			{
 				return false;
 			}
@@ -267,9 +267,10 @@ function validateDob(){
 		erdob.innerHTML = "Date of Birth can not be empty.";
 	}
 	else{
-		if (DOB(date,month,year) == true) {
+		if (DOB(date,month,year)) {
 			erdob.innerHTML = "";
-		}else{
+		}
+		else{
 			erdob.innerHTML = "Date is not valid";
 		}
 	}
@@ -310,7 +311,7 @@ function NumberValid(uid)
 		for (var i = 0; i < splitUid.length; i++) {
 			for (var j = 0; j < number.length; j++) 
 			{
-				if(splitUid[i]==number[j])
+				if(splitUid[i] == number[j])
 				{
 					flag += 1;
 				}
@@ -414,18 +415,20 @@ function submitData() {
 		  		{
 		  			xhttp.send("er = Password is been not matched.");
 		  		}
-		  		else
-		  		{
-		  			var name = letterValid(name);
-		  			var email = Email(email);
-		  			var uid = NumberValid(uname);
-		  			if(name == true && email == true && uid == true)
-					{
-						xhttp.send("Name="+name+"&Email="+email+"&Uname="+uname+"&Pass="+
+		  	else
+		  	{
+		  		var n = letterValid(name);
+		  		var e = Email(email);
+		  		var u = NumberValid(uid);
+		  		if(n && e && u)
+				{
+					xhttp.send("Name="+name+"&Email="+email+"&Uname="+uname+"&Pass="+
 							pass+"&Gender="+gender+"&Day="+d+"&Month="+m+"&Year="+y+"&BG="+
-							bgroup+"&Degree="+degree+"&Uid"+uid);
-					}
-					else{
+							bgroup+"&Degree="+degree+"&Uid="+uid);
+					console.log(bgroup);
+					reset();
+				}
+				else{
 						xhttp.send("er= Invalid Event");
 					}
 		  		}
@@ -436,7 +439,6 @@ function submitData() {
     if (this.readyState == 4 && this.status == 200) {
     	var errorHead = document.getElementById("error");
      	errorHead.innerHTML = this.responseText;
-    }
-    };
+    }};
 }
 
